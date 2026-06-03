@@ -1,0 +1,16 @@
+manifest {
+  name = "Strings Util"
+  version = "1.0.0"
+  author = "Jetpack"
+}
+
+// public is exported to importing scripts; private stays local.
+public function shout(string text): string {
+  return text.upper() + "!"
+}
+
+public const string PREFIX = "[Server]"
+
+private function internalTag(): string {
+  return "internal"
+}

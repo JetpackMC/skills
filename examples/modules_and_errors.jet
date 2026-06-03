@@ -1,0 +1,55 @@
+manifest {
+  name = "Modules and Errors"
+  version = "1.0.0"
+  author = "Jetpack"
+}
+
+using math
+using random
+using json
+using storage
+using http
+
+// Ensure the store exists once at load time.
+bool ready = storage.exists("stats") || storage.create("stats")
+
+function rollAndStore(object sender, string player) {
+  int roll = random.integer(1, 20)
+  int bounded = math.clamp(roll, 1, 20)
+  storage.set("stats", player, bounded)
+  sender.sendMessage($"{player} rolled {bounded}")
+}
+
+@permission "example.stats"
+command stats(object sender, string player) {
+  default {
+    try {
+      rollAndStore(sender, player)
+      var saved = storage.get("stats", player)
+      sender.sendMessage($"stored value: {saved}")
+    } catch (ArgumentException error) {
+      sender.sendMessage("Bad input.")
+    } catch (RuntimeException error) {
+      sender.sendMessage("Could not update stats.")
+    }
+  }
+
+  command parse(string raw) {
+    try {
+      var data = json.parse(raw)
+      sender.sendMessage($"parsed: {data}")
+    } catch (RuntimeException error) {
+      sender.sendMessage("Invalid JSON.")
+    }
+  }
+}
+
+function fetchStatus(object sender, string url) {
+  // Run the blocking request off the main flow.
+  object response = thread http.get(url)
+  if (response.ok) {
+    sender.sendMessage($"OK {response.status}")
+  } else {
+    sender.sendMessage($"Failed {response.status}")
+  }
+}

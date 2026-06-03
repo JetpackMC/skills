@@ -1,0 +1,51 @@
+manifest {
+  name = "Types and Collections"
+  version = "1.0.0"
+  author = "Jetpack"
+  description = "Variables, collections, deconstruction, and iteration."
+}
+
+// Concrete types for clarity; var where the type is obvious.
+int count = 3
+float ratio = 0.75
+string label = "players"
+bool enabled = true
+var total = count + 10
+
+// A power result is float-typed, so the target is float (or var).
+float squared = 2 ** 10
+
+list<int> scores = [40, 55, 90]
+list<string> names = ["Alex", "Steve", "Sam"]
+
+// Object literals use quoted string keys.
+object profile = {
+  "name": "Alex",
+  "level": 10,
+  "enabled": true
+}
+
+// Deconstruction reads positions from a list.
+var (first, second) = names
+const (low, _, high) = [1, 2, 3]
+
+function summarize(list<int> values): string {
+  int sum = 0
+  foreach (int v in values) {
+    sum += v
+  }
+  int highest = values.descend().first()
+  return $"sum={sum} highest={highest} first={first} range={low}-{high}"
+}
+
+// Ranges build int lists; foreach over a range.
+list<int> indices = 0 until scores.length()
+foreach (int i in indices) {
+  int adjusted = scores[i] + count
+  scores[i] = adjusted
+}
+
+string report = summarize(scores)
+string upper = label.upper()
+bool hasAlex = "Alex" in names
+string joined = names.join(", ")

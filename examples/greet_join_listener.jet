@@ -1,0 +1,10 @@
+manifest {
+  name = "Join Greeter"
+  version = "1.0.0"
+  author = "Jetpack"
+}
+
+listener PlayerJoinEvent greet(object event) {
+  object player = event.player
+  player.sendMessage($"Welcome, {player.name}")
+}

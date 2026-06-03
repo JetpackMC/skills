@@ -1,0 +1,14 @@
+manifest {
+  name = "Use Import"
+  version = "1.0.0"
+  author = "Jetpack"
+}
+
+// Path is the module path relative to the scripts root:
+// scripts/shared/strings_util.jet -> shared.strings_util
+using shared.strings_util as util
+
+command announce(object sender, string message) {
+  string line = util.PREFIX + " " + util.shout(message)
+  sender.sendMessage(line)
+}

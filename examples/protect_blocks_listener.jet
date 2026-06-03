@@ -1,0 +1,15 @@
+manifest {
+  name = "Block Protection"
+  version = "1.0.0"
+  author = "Jetpack"
+}
+
+// BlockBreakEvent is cancellable, so the event object exposes cancel().
+@priority "HIGH"
+listener BlockBreakEvent protectBlocks(object event) {
+  object player = event.player
+  if (!player.hasPermission("example.break")) {
+    player.sendMessage("You cannot break blocks here.")
+    event.cancel()
+  }
+}

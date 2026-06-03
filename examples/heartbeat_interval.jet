@@ -1,0 +1,18 @@
+manifest {
+  name = "Heartbeat"
+  version = "1.0.0"
+  author = "Jetpack"
+}
+
+using bukkit
+
+int ticks = 0
+
+// Period is a positive integer literal in milliseconds (here 5 seconds).
+interval heartbeat(5000) {
+  ticks += 1
+  bukkit.Bukkit.getLogger().info($"heartbeat {ticks}")
+  if (ticks % 12 == 0) {
+    bukkit.Bukkit.broadcastMessage($"Server has been up for {ticks * 5} seconds")
+  }
+}

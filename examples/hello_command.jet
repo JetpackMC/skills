@@ -1,0 +1,34 @@
+manifest {
+  name = "Tools Command"
+  version = "1.0.0"
+  author = "Jetpack"
+}
+
+@description "Tools command with subcommands"
+@usage "/tools <info|pay>"
+@permission "example.tools"
+@aliases "t,tool"
+command tools(object sender) {
+  // Preamble runs before the matched subcommand or default.
+  if (!sender.hasPermission("example.tools")) {
+    sender.sendMessage("You do not have permission.")
+    return
+  }
+
+  default {
+    sender.sendMessage("/tools info")
+    sender.sendMessage("/tools pay <target> <amount>")
+  }
+
+  command info() {
+    sender.sendMessage("Tools v1.0.0")
+  }
+
+  command pay(string target, int amount) {
+    if (amount <= 0) {
+      sender.sendMessage("Amount must be positive.")
+      return
+    }
+    sender.sendMessage($"Paid {amount} to {target}")
+  }
+}
