@@ -1,6 +1,6 @@
 ---
 name: jetpack
-description: Authoritative reference for the Jetpack scripting language (.jet files) used by the Jetpack Paper/Minecraft plugin. Use when reading, writing, reviewing, or debugging .jet scripts, or when answering questions about Jetpack syntax, types, modules, commands, listeners, intervals, imports, or the Bukkit native bridge.
+description: Authoritative reference for the Jetpack scripting language (.jet files) used by the Jetpack Paper/Minecraft plugin. Use when reading, writing, reviewing, or debugging .jet scripts, or when answering questions about Jetpack syntax, types, modules, commands, listeners, intervals, imports, or the Bukkit native bridge. Also covers host-plugin extensions: how a separate Paper plugin (Java/Kotlin) registers its own modules and global functions into the Jetpack runtime.
 ---
 
 # Jetpack Language
@@ -41,6 +41,10 @@ Load the reference file for the construct you are working with. Files are groupe
 
 - [standard-modules.md](reference/modules/standard-modules.md): `math`, `json`, `random`, `storage`, `time`, `regex`, `http`
 - [bukkit-and-native.md](reference/modules/bukkit-and-native.md): `bukkit` module, native reflection, properties, enums, construction, conversion
+
+`reference/extending/` — host-plugin extensions (for Java/Kotlin plugin developers, not `.jet` authors):
+
+- [host-plugin-extensions.md](reference/extending/host-plugin-extensions.md): registering modules and builtins from a Paper plugin through `JetpackPlugin`, type/signature construction, validation, and the registration lifecycle
 
 Runnable programs are in [examples/](examples/). Examples demonstrate idioms and are not part of the specification.
 
