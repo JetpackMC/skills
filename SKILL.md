@@ -1,6 +1,6 @@
 ---
 name: jetpack
-description: Authoritative reference for the Jetpack scripting language (.jet files) used by the Jetpack Paper/Minecraft plugin. Use when reading, writing, reviewing, or debugging .jet scripts, or when answering questions about Jetpack syntax, types, modules, commands, listeners, intervals, imports, or the Bukkit native bridge. Also covers host-plugin extensions: how a separate Paper plugin (Java/Kotlin) registers its own modules and global functions into the Jetpack runtime.
+description: Authoritative reference for the Jetpack scripting language .jet files used by the Jetpack Paper/Minecraft plugin. Use when reading, writing, reviewing, or debugging .jet scripts, or when answering questions about Jetpack syntax, types, modules, commands, listeners, intervals, imports, or the Bukkit native bridge. Also covers host-plugin extensions including how a separate Paper plugin Java/Kotlin registers its own modules and global functions into the Jetpack runtime.
 ---
 
 # Jetpack Language
