@@ -1,8 +1,12 @@
-# Jetpack Skill
+<div align="center">
 
-Agent skill for writing, reviewing, and debugging Jetpack `.jet` scripts.
+<img src="./.github/assets/jetpack.png" alt="Jetpack" width="480"><br>
 
-## Install
+Jetpack Skill is an agent skill for writing, reviewing, and debugging Jetpack `.jet` scripts.
+
+</div>
+
+## Installation
 
 ```sh
 npx skills add JetpackMC/skills
@@ -24,3 +28,7 @@ reference/scripts/   Script-level constructs
 reference/modules/   Built-in modules and Bukkit bridge
 examples/            Example .jet scripts
 ```
+
+## License
+
+The Jetpack project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
