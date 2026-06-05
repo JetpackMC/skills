@@ -41,7 +41,12 @@ On the lines immediately before a root `command`:
 @permission "node"           permission required to run
 @permission_message "text"   shown when permission is missing
 @aliases "a,b"               comma-separated aliases, written as one string
+@placeholder param "name"    display name for a command parameter in the Minecraft command input UI
 ```
+
+Annotations apply to the command declaration immediately following them. Root commands and subcommands have separate annotation scopes.
+
+If a parameter has no `@placeholder`, Jetpack uses the parameter name as the displayed argument name. A placeholder that references a missing parameter, including the sender parameter, is rejected when the script loads.
 
 ## Runtime methods
 
