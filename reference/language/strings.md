@@ -8,12 +8,12 @@ Delimited by `"` or `'`. Escapes are in [lexical-structure.md](lexical-structure
 
 ## Interpolation
 
-An interpolated string starts with `$"` and ends with `"`.
+An interpolated string starts with `$"` and ends with `"`, or starts with `$'` and ends with `'`.
 
 - `{ expr }` embeds the value of `expr`. The expression is parsed and type-checked like any other and may contain strings, calls, indexing, and nested braces/parentheses/brackets, and may span multiple lines.
 - `{{` and `}}` produce literal `{` and `}`. A lone `}` outside an interpolation is an error.
 - The embedded value uses standard string rendering (same as concatenation/`toString`): `object` and `list` render in a structured JSON-like form; `float` renders as plain decimal.
-- Recognized escapes in the literal portion are `\n` `\t` `\r` `\\` `\"` (not `\'`).
+- Recognized escapes in the literal portion are `\n` `\t` `\r` `\\` `\"` `\'`.
 
 Use interpolation when a message embeds several values; `+` concatenation is fine for one or two parts.
 

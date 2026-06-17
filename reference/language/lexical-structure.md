@@ -23,8 +23,8 @@ public private protected
 if else while foreach in break continue
 try catch finally
 thread to until
+interval listener command schedule default
 enum
-interval listener command default
 using as manifest
 ```
 
@@ -42,7 +42,7 @@ Float: digits, `.`, digits, with a digit required on both sides of the `.`, for 
 
 String: delimited by `"` or `'`. A raw newline inside a literal is an error. Escapes: `\n` `\t` `\r` `\\` `\'` `\"`. Any other escape is a lexer error.
 
-Interpolated string: begins with `$"`; see [strings.md](strings.md). Inside it the recognized escapes are `\n` `\t` `\r` `\\` `\"` (not `\'`).
+Interpolated string: begins with `$"` or `$'`; see [strings.md](strings.md). Inside it the recognized escapes are `\n` `\t` `\r` `\\`, plus `\"` for `$"` and `\'` for `$'`.
 
 Boolean and null: `true`, `false`, `null`.
 

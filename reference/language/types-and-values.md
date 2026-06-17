@@ -15,7 +15,7 @@ Declarable types:
 - `var`: inferred from the initializer; internally the "unknown" type
 - `null`: the single null value
 
-These value kinds can be held in variables but cannot be used as a declared type annotation: `function`, `interval`, `listener`, `command`, `module`. `typeof` reports `"function"` for both script functions and builtins.
+These value kinds can be held in variables but cannot be used as a declared type annotation: `function`, `interval`, `schedule`, `listener`, `command`, `module`. `typeof` reports `"function"` for both script functions and builtins.
 
 ## var and inference
 

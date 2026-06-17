@@ -4,7 +4,7 @@
 
 Each `.jet` file under `plugins/Jetpack/scripts/` is a module. A module's path is its file path relative to the scripts root, without the `.jet` suffix, with directory separators as dots. A file at `scripts/shared/utils.jet` has module path `shared.utils`.
 
-A module's top level may contain: a `manifest` block, `using` imports, `@`-annotations, variable declarations, function/interval/listener/command declarations, deconstruction declarations, and statements.
+A module's top level may contain: a `manifest` block, `using` imports, `@`-annotations, variable declarations, function/interval/schedule/listener/command/enum declarations, deconstruction declarations, and statements.
 
 Conventional layout of a file:
 
@@ -72,15 +72,15 @@ An imported module exposes its top-level declarations according to their access 
 - `protected`: visible to importers as a read-only view; mutation through the import is blocked.
 - `private`: not exported.
 
-`const` declarations and `protected` declarations are read-only to importers. A `protected` value of a structural kind (list, object, command, listener, interval, nested module) is exposed through a wrapper that blocks mutation and lifecycle control from another file.
+`const` declarations and `protected` declarations are read-only to importers. A `protected` value of a structural kind (list, object, command, listener, interval, schedule, nested module) is exposed through a wrapper that blocks mutation and lifecycle control from another file.
 
-Reading an exported variable before the defining module has initialized it raises a runtime error. Function/interval/listener/command exports are available once declared.
+Reading an exported variable before the defining module has initialized it raises a runtime error. Function/interval/schedule/listener/command/enum exports are available once declared.
 
 ## Load order
 
 1. All scripts are parsed.
 2. Imports are resolved for every module.
 3. Each module is validated (name resolution, then type checking) after its dependencies, with circular imports reported as an error.
-4. Validated modules load. Loading a module runs its top level: top-level function/interval/listener/command declarations are established first, then the remaining top-level statements execute in source order, importing dependencies on demand.
+4. Validated modules load. Loading a module runs its top level: top-level function/interval/schedule/listener/command/enum declarations are established first, then the remaining top-level statements execute in source order, importing dependencies on demand.
 
 A module that fails validation or whose dependency fails does not load, and its entry points are not registered.

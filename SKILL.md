@@ -37,6 +37,7 @@ Load the reference file for the construct you are working with. Files are groupe
 - [commands.md](reference/scripts/commands.md): `command`, sender, parameters, subcommands, `default`, annotations, runtime methods
 - [listeners-and-events.md](reference/scripts/listeners-and-events.md): `listener`, event names, event object, cancellation, annotations, runtime methods
 - [intervals.md](reference/scripts/intervals.md): `interval`, tick conversion, runtime methods
+- [schedules.md](reference/scripts/schedules.md): `schedule`, cron timing, runtime methods
 
 `reference/modules/` — libraries:
 
@@ -58,13 +59,13 @@ These are the points most often gotten wrong. Each is covered in detail in its r
 3. `catch` types use Jetpack exception names: `Exception`, `RuntimeException`, and the `RuntimeException` subtypes `TypeException`, `NameException`, `IndexException`, `KeyException`, `ArgumentException`, `ArithmeticException`, `StateException`, `PermissionException`, `NativeException`, `ModuleException`. See [reference/language/error-handling.md](reference/language/error-handling.md).
 4. Every variable declaration includes an initializer.
 5. Function parameters carry explicit type annotations.
-6. `function`, `command`, `listener`, `interval`, `enum`, `manifest`, and access modifiers appear only at file scope, never inside a block.
+6. `function`, `command`, `listener`, `interval`, `schedule`, `enum`, `manifest`, and access modifiers appear only at file scope, never inside a block.
 7. The checker types `**` as `float`. Annotate the target `float` or `var` to hold a power result.
 8. List and object transformation methods return new values. Reassign to keep the result.
 
 ## Execution model
 
 - A `.jet` file is a module. Top-level `function`/`interval`/`listener`/`command` declarations are hoisted, then top-level statements execute top to bottom once at load time.
-- `command`, `listener`, and `interval` are entry points wired to the server. Reusable logic belongs in `function`s called from entry points.
+- `command`, `listener`, `interval`, and `schedule` are entry points wired to the server. Reusable logic belongs in `function`s called from entry points.
 - The interpreter runs on Kotlin coroutines. `command`, `listener`, and `interval` bodies run on the main server thread dispatcher. `thread` and some module calls move work off the main thread.
 - Static checking is per-module after import resolution. A type or name error in a module prevents that module from loading.
