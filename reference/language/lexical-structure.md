@@ -23,6 +23,7 @@ public private protected
 if else while foreach in break continue
 try catch finally
 thread to until
+enum
 interval listener command default
 using as manifest
 ```

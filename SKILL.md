@@ -24,6 +24,7 @@ Load the reference file for the construct you are working with. Files are groupe
 - [variables-and-scope.md](reference/language/variables-and-scope.md): declarations, `const`, access modifiers, deconstruction, scoping
 - [operators.md](reference/language/operators.md): arithmetic, comparison, logical, assignment, range, `in`, precedence
 - [strings.md](reference/language/strings.md): string literals, escapes, interpolation, string methods
+- [enums.md](reference/language/enums.md): file-scope enum declarations and enum member values
 - [collections.md](reference/language/collections.md): list and object literals, indexing, iteration, methods
 - [control-flow.md](reference/language/control-flow.md): `if`/`else`, `while`, `foreach`, `break`/`continue`, ternary
 - [functions.md](reference/language/functions.md): function declarations, parameters, defaults, return, type rules
@@ -57,7 +58,7 @@ These are the points most often gotten wrong. Each is covered in detail in its r
 3. `catch` types use Jetpack exception names: `Exception`, `RuntimeException`, and the `RuntimeException` subtypes `TypeException`, `NameException`, `IndexException`, `KeyException`, `ArgumentException`, `ArithmeticException`, `StateException`, `PermissionException`, `NativeException`, `ModuleException`. See [reference/language/error-handling.md](reference/language/error-handling.md).
 4. Every variable declaration includes an initializer.
 5. Function parameters carry explicit type annotations.
-6. `function`, `command`, `listener`, `interval`, `manifest`, and access modifiers appear only at file scope, never inside a block.
+6. `function`, `command`, `listener`, `interval`, `enum`, `manifest`, and access modifiers appear only at file scope, never inside a block.
 7. The checker types `**` as `float`. Annotate the target `float` or `var` to hold a power result.
 8. List and object transformation methods return new values. Reassign to keep the result.
 
